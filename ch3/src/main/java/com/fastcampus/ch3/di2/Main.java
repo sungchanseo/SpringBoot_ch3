@@ -1,7 +1,12 @@
 package com.fastcampus.ch3.di2;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.Resource;
+
 class Car{
-    Engine engine;
-    Door door;
+    @Autowired Engine engine; //byType으로 자동검색하여 주입.
+    @Resource Door door; //byName으로 자동검색하여 주입.
 
 
     public void setEngine(Engine engine) {
@@ -42,10 +47,15 @@ public class Main {
         Engine engine = (Engine) ac.getBean("engine");
         Door door = (Door) ac.getBean(Door.class);
 
-        System.out.println("door = " + door);
-        System.out.println("engine = " + engine);
+        //빈들 끼리의 관계를 수동으로 설정함.
+//        car.setEngine(engine);
+//        car.setDoor(door);
 
         System.out.println("car = " + car);
         System.out.println("car2 = " + car2);
+        System.out.println("door = " + door);
+        System.out.println("engine = " + engine);
+
+
     }
 }

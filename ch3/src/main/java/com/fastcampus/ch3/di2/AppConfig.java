@@ -3,7 +3,7 @@ package com.fastcampus.ch3.di2;
 import org.springframework.context.annotation.Bean;
 
 public class AppConfig {
-    @Bean public Car car(){
+    @Bean public Car car(){ //메소드 이름이 빈의 이름
         //map.put("car", new Car()); xml의 경우
         //<bean id = "car" class="com.fastcampus.ch3.di2.Car">
         Car car = new Car();
